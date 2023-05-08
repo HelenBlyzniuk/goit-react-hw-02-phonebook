@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { PhonebookSection } from './PhonebookSection/PhonebookSection';
 import { ContactForm } from './ContactForm/ContactForm';
+import { ContactList } from './ContactList/ContactList';
 
 export class App extends Component {
   state = {
@@ -32,6 +33,7 @@ export class App extends Component {
       >
         <PhonebookSection>
           <ContactForm onSubmit={this.addNumber} />
+          <ContactList contacts={this.state} />
         </PhonebookSection>
       </div>
     );
