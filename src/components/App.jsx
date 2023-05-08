@@ -19,6 +19,7 @@ export class App extends Component {
     this.setState(prevState => ({
       contacts: [contact, ...prevState.contacts],
     }));
+    console.log(this.state);
   };
 
   render() {
@@ -33,7 +34,7 @@ export class App extends Component {
       >
         <PhonebookSection>
           <ContactForm onSubmit={this.addNumber} />
-          <ContactList contacts={this.state} />
+          <ContactList contacts={this.state.contacts} />
         </PhonebookSection>
       </div>
     );

@@ -1,16 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export class ContactList extends Component {
-  render() {
-    return (
-      <ul className="contactList">
-        List of contacts
-        <li className="cintactItem">
-          <p className="contactName"></p>
-          <p className="contactPhone"></p>
-          <button type="button" className="deleteContact"></button>
+export const ContactList = ({ contacts }) => {
+  return (
+    <ul className="contactList">
+      List of contacts
+      {contacts.map(({ name, number, id }) => (
+        <li className="cintactItem" id={id} key={id}>
+          <p className="contactName">{name}</p>
+          <p className="contactPhone">{number}</p>
+          <button type="button" className="deleteContact">
+            Delete
+          </button>
         </li>
-      </ul>
-    );
-  }
-}
+      ))}
+    </ul>
+  );
+};

@@ -16,8 +16,15 @@ export class ContactForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.state);
+    this.onFormReset();
   };
 
+  onFormReset = () => {
+    this.setState({
+      name: '',
+      number: '',
+    });
+  };
   render() {
     return (
       <form className="contactForm" onSubmit={this.handleSubmit}>
@@ -28,6 +35,7 @@ export class ContactForm extends Component {
             className="contact_name"
             name="name"
             onChange={this.handleChange}
+            value={this.state.name}
             required
           />
         </label>
@@ -40,6 +48,7 @@ export class ContactForm extends Component {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
             onChange={this.handleChange}
+            value={this.state.number}
           />
         </label>
         <button className="submit" type="submit" onSubmit={this.handleSubmit}>
