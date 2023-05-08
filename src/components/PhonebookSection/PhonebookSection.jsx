@@ -5,7 +5,7 @@ export class PhonebookSection extends Component {
     return (
       <section className="phonebook">
         <h1 className="phonebook_title">Phonebook</h1>
-        {/* {children} */}
+        {this.props.children}
       </section>
     );
   }

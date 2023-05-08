@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { nanoid } from 'nanoid';
 import { PhonebookSection } from './PhonebookSection/PhonebookSection';
 import { ContactForm } from './ContactForm/ContactForm';
 
@@ -7,8 +8,16 @@ export class App extends Component {
     contacts: [],
   };
 
-  addNumber = data => {
-    console.log(data);
+  addNumber = ({ name, number }) => {
+    const contact = {
+      name,
+      number,
+      id: nanoid(),
+    };
+
+    this.setState(prevState => ({
+      contacts: [contact, ...prevState.contacts],
+    }));
   };
 
   render() {
@@ -21,8 +30,9 @@ export class App extends Component {
           color: '#010101',
         }}
       >
-        <PhonebookSection></PhonebookSection>
-        <ContactForm onSubmit={this.addNumber} />
+        <PhonebookSection>
+          <ContactForm onSubmit={this.addNumber} />
+        </PhonebookSection>
       </div>
     );
   }
