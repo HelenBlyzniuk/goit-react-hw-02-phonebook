@@ -18,7 +18,7 @@ export class App extends Component {
       contact => contact.name === name
     );
     if (isContact.length > 0) {
-      console.log('The contact has already existed');
+      alert('The contact has already existed');
       return;
     } else {
       const contact = {
@@ -59,6 +59,9 @@ export class App extends Component {
         style={{
           height: '100vh',
           display: 'block',
+          width: '600px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
           fontSize: 30,
           color: '#010101',
         }}

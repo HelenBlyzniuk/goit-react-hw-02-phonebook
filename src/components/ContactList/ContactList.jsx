@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class ContactList extends Component {
   handleClick = e => {
@@ -27,3 +28,13 @@ export class ContactList extends Component {
     );
   }
 }
+ContactList.propTypes = {
+  getId: PropTypes.func,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      number: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired,
+    })
+  ),
+};
