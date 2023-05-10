@@ -12,8 +12,6 @@ export class App extends Component {
   };
 
   addNumber = ({ name, number }) => {
-    console.log(name);
-    console.log(this.state.contacts);
     const isContact = this.state.contacts.filter(
       contact => contact.name === name
     );
@@ -34,7 +32,6 @@ export class App extends Component {
   };
 
   removeContact = id => {
-    console.log(id);
     const removedContact = this.state.contacts.filter(
       contact => contact.id !== id
     );

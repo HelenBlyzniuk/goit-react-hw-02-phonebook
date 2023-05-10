@@ -5,7 +5,6 @@ import { ListContainer, ListItem, ListButton } from './ContactList.styled.jsx';
 
 export class ContactList extends Component {
   handleClick = e => {
-    console.log(e.currentTarget.id);
     this.props.getId(e.currentTarget.id);
   };
   render() {
