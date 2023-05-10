@@ -63,7 +63,7 @@ export class App extends Component {
           marginLeft: 'auto',
           marginRight: 'auto',
           fontSize: 30,
-          color: '#010101',
+          color: 'grey',
         }}
       >
         <h1>Phonebook</h1>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { ListContainer, ListItem, ListButton } from './ContactList.styled.jsx';
+
 export class ContactList extends Component {
   handleClick = e => {
     console.log(e.currentTarget.id);
@@ -9,22 +11,22 @@ export class ContactList extends Component {
   render() {
     const { contacts } = this.props;
     return (
-      <ul className="contactList">
+      <ListContainer>
         List of contacts
         {contacts.map(({ name, number, id }) => (
-          <li className="contactItem" id={id} key={id}>
-            {name}: {number};
-            <button
+          <ListItem id={id} key={id}>
+            {name}: {number}
+            <ListButton
               type="button"
               className="deleteContact"
               id={id}
               onClick={this.handleClick}
             >
               Delete
-            </button>
-          </li>
+            </ListButton>
+          </ListItem>
         ))}
-      </ul>
+      </ListContainer>
     );
   }
 }
@@ -33,8 +35,8 @@ ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      number: PropTypes.number.isRequired,
-      id: PropTypes.number.isRequired,
+      number: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
     })
   ),
 };

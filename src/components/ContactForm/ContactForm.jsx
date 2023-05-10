@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {
+  FormContainer,
+  FormLabel,
+  FormInput,
+  FormButton,
+} from './ContactForm.styled.jsx';
 
 export class ContactForm extends Component {
   state = {
@@ -29,34 +35,35 @@ export class ContactForm extends Component {
   };
   render() {
     return (
-      <form className="contactForm" onSubmit={this.handleSubmit}>
-        <label>
+      <FormContainer onSubmit={this.handleSubmit}>
+        <FormLabel>
           Name
-          <input
+          <FormInput
             type="text"
-            className="contact_name"
             name="name"
+            placeholder="...name"
             onChange={this.handleChange}
             value={this.state.name}
             required
           />
-        </label>
-        <label>
+        </FormLabel>
+        <FormLabel>
           Number
-          <input
+          <FormInput
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
+            placeholder="...number"
             onChange={this.handleChange}
             value={this.state.number}
           />
-        </label>
-        <button className="submit" type="submit" onSubmit={this.handleSubmit}>
+        </FormLabel>
+        <FormButton type="submit" onSubmit={this.handleSubmit}>
           Add contact
-        </button>
-      </form>
+        </FormButton>
+      </FormContainer>
     );
   }
 }
