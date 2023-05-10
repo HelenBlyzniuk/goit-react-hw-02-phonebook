@@ -12,16 +12,25 @@ export class App extends Component {
   };
 
   addNumber = ({ name, number }) => {
-    const contact = {
-      name,
-      number,
-      id: nanoid(),
-    };
+    console.log(name);
+    console.log(this.state.contacts);
+    const isContact = this.state.contacts.filter(
+      contact => contact.name === name
+    );
+    if (isContact.length > 0) {
+      console.log('The contact has already existed');
+      return;
+    } else {
+      const contact = {
+        name,
+        number,
+        id: nanoid(),
+      };
 
-    this.setState(prevState => ({
-      contacts: [contact, ...prevState.contacts],
-    }));
-    console.log(this.state);
+      this.setState(prevState => ({
+        contacts: [contact, ...prevState.contacts],
+      }));
+    }
   };
 
   removeContact = id => {
@@ -29,7 +38,7 @@ export class App extends Component {
     const removedContact = this.state.contacts.filter(
       contact => contact.id !== id
     );
-    console.log(removedContact);
+
     this.setState({
       contacts: [...removedContact],
     });
