@@ -13,7 +13,7 @@ export class App extends Component {
 
   addNumber = ({ name, number }) => {
     const isContact = this.state.contacts.filter(
-      contact => contact.name === name
+      contact => contact.name.toLowerCase() === name.toLowerCase()
     );
     if (isContact.length > 0) {
       alert('The contact has already existed');
@@ -44,6 +44,20 @@ export class App extends Component {
   onFilterChange = e => {
     this.setState({ filter: e.currentTarget.value });
   };
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.contacts !== this.state.contacts) {
+  //     localStorage.setItem('myContacts', JSON.stringify(this.state.contacts));
+  //   }
+  // }
+
+  // componemtDidMount() {
+  //   const contacts = localStorage.getItem('myContacts');
+  //   const parsedContacts = JSON.parsed(contacts);
+  //   if (parsedContacts) {
+  //     this.setState({ contacts: parsedContacts });
+  //   }
+  // }
 
   render() {
     const normalizedFilter = this.state.filter.toLowerCase();
